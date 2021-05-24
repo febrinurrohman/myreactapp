@@ -20,13 +20,16 @@ const NavbarComp = (props) => {
 
     return (
         <div>
-            <Navbar color="light" light expand="md">
+            <Navbar color="light" light expand="md" className="mb-3">
                 <NavbarBrand href="/">MyReactApp</NavbarBrand>
                 <NavbarToggler onClick={toggle} />
                 <Collapse isOpen={isOpen} navbar>
                     <Nav className="mr-auto" navbar>
                         <NavItem>
                             <NavLink href="/">Home</NavLink>
+                        </NavItem>
+                        <NavItem>
+                            <NavLink href="/mahasiswa">Mahasiswa</NavLink>
                         </NavItem>
                         <NavItem>
                             <NavLink href="/about">About</NavLink>
