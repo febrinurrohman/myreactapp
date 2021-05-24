@@ -1,4 +1,4 @@
-import { Alert, Button, Col, Form, FormGroup, FormText, Label, Input } from 'reactstrap'
+import { Alert, Button, Col, Form, FormGroup, Label, Input } from 'reactstrap'
 import { PureComponent } from "react";
 import axios from 'axios';
 

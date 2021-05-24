@@ -1,6 +1,7 @@
 import axios from 'axios'
 import { PureComponent } from "react"
 import { Button, Nav, NavLink, Table } from 'reactstrap'
+import { Link } from 'react-router-dom'
 
 const apiHost = 'http://localhost:3001'
 
@@ -48,7 +49,17 @@ class MahasiswaList extends PureComponent {
                                     <td>{mahasiswa.mhs_nim}</td>
                                     <td>{mahasiswa.mhs_nama}</td>
                                     <td>{mahasiswa.mhs_jurusan}</td>
-                                    <td>Edit | Delete</td>
+                                    <td>
+                                        <Link to={
+                                            {
+                                                pathname: '/mahasiswa/edit',
+                                                state: {
+                                                    mhs_id: mahasiswa.mhs_id
+                                                }
+                                            }
+                                        }><Button color="info" size="sm">Edit</Button></Link>{' '}
+                                        <Button color="danger" size="sm">Delete</Button>
+                                    </td>
                                 </tr>
                             )
                         }

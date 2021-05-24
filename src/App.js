@@ -1,12 +1,13 @@
 import { BrowserRouter, Route, Switch } from 'react-router-dom'
 import { Container } from 'reactstrap'
 
-import NavbarComp from './Components/Functional/NavbarComp'
 import AboutComp from './Components/Functional/AboutComp'
+import DetailComp from './Components/Functional/DetailComp'
+import HomePage from './Components/Functional/HomePage'
 import MahasiswaList from './Pages/Mahasiswa/MahasiswaList'
 import MahasiswaAdd from './Pages/Mahasiswa/MahasiswaAdd'
-import HomePage from './Components/Functional/HomePage'
-import DetailComp from './Components/Functional/DetailComp'
+import MahasiswaEdit from './Pages/Mahasiswa/MahasiswaEdit'
+import NavbarComp from './Components/Functional/NavbarComp'
 
 const App = () => {
     return (
@@ -20,6 +21,7 @@ const App = () => {
                     <Route exact path="/detail/:id" component={DetailComp} />
                     <Route exact path="/mahasiswa" component={MahasiswaList} />
                     <Route exact path="/mahasiswa/add" component={MahasiswaAdd} />
+                    <Route exact path="/mahasiswa/edit" component={MahasiswaEdit} />
                 </Switch>
             </Container>
         </BrowserRouter>
