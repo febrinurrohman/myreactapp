@@ -1,4 +1,5 @@
 import axios from 'axios'
+import qs from 'querystring'
 import { PureComponent } from "react"
 import { Button, Nav, NavLink, Table } from 'reactstrap'
 import { Link } from 'react-router-dom'
@@ -22,6 +23,22 @@ class MahasiswaList extends PureComponent {
                 mahasiswa: res.data.values
             })
         })
+    }
+
+    deleteMahasiswa = (mhs_id) => {
+        axios.delete(apiHost + '/mahasiswa', {
+            data: qs.stringify({
+                id: mhs_id
+            }),
+            headers: {'Content-type': 'application/x-www-form-urlencoded'}
+        }).then(
+            res => {
+                this.setState({
+                    response: res.data.values,
+                    notif_display: 'block'
+                })
+            }
+        )
     }
 
     render() {
@@ -58,7 +75,7 @@ class MahasiswaList extends PureComponent {
                                                 }
                                             }
                                         }><Button color="info" size="sm">Edit</Button></Link>{' '}
-                                        <Button color="danger" size="sm">Delete</Button>
+                                        <Button color="danger" size="sm" onClick={() => this.deleteMahasiswa(mahasiswa.mhs_id)}>Delete</Button>
                                     </td>
                                 </tr>
                             )
